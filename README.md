@@ -20,3 +20,10 @@
 	
 	cmake的基本执行文件CMakeLists.txt,要想CMake可以进行不同平台的编译，需要编写toolchain.cmake（androidstudio之所以能在电脑上编写arm上的.so就是这个原理，在NDK的build\cmake下有一个android.toolchain.cmake）执行的时候添加编译选项 -DCMAKE_TOOLCHAIN_FILE=path/to/toolchain.cmake
 [https://blog.csdn.net/gw569453350game/article/details/46683845](https://blog.csdn.net/gw569453350game/article/details/46683845 "cmake 基本命令 & 交叉编译配置 & 模块的编写")
+## 2018.8.17 ##
+	在androidstudio开发环境下，cmake 在链接动态库的时候
+	target_link_libraries()中，可以添加android特有的动态库，
+	比如android log，它们的具体位置在${NDK_HOME}/platforms/
+	android-xx/arch-arm/usr/lib/下
+
+	android studio在make module时，会连带编译.so
